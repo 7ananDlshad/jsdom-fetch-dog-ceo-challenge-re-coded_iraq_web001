@@ -1,16 +1,1 @@
-console.log('%c HI', 'color: firebrick');
-//Challenge 1
-const imgUrl = "https://dog.ceo/api/breeds/image/random/4";
-let divImage = document.getElementById("dog-image-container");
-fetch(imgUrl).then(function(response){
-  return response.json();
-}).then(function(json) {
-  let imgDiv = document.getElementById("dog-image-container");
-  for(const element of json.message){
-    let imge=document.createElement('img');
-    imge.setAttribute('element');
-    imgDiv.appendChild(imge);
-  }
-});
-//Challenge 2
-const breedUrl = 'https://dog.ceo/api/breeds/list/all'
+console.log('%c HI', 'color: firebrick')document.addEventListener('DOMContentLoaded',  ()=>{ function fetchDogImg() {   return fetch("https://dog.ceo/api/breeds/image/random/4")    .then(function(response){     return response.json();          })    .then(function(json){      appendImages(json);    })  }function fetchDogBreed() {   return fetch('https://dog.ceo/api/breeds/list/all')    .then(function(response){     return response.json();          })    .then(function(json){      appendBreed(json);    })  }    fetchDogImg();  fetchDogBreed();    function appendImages(data){  const imageDiv = document.querySelector('#dog-image-container');  for(const imgsrc of data.message){    let images = document.createElement('img');    images.src = imgsrc;    imageDiv.appendChild(images)  }}let liArray = [];function appendBreed(data){  const breedUl = document.querySelector('#dog-breeds');   for(const breeds in data.message){         let lis = document.createElement('li');    l
